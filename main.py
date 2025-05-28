@@ -15,8 +15,11 @@ sys.path.insert(0, ABSOLUTE_PLUGIN_PATH)
 
 from src.backend.PluginManager.ActionHolder import ActionHolder
 from src.backend.PluginManager.PluginBase import PluginBase
+from src.backend.PluginManager.ActionInputSupport import ActionInputSupport
+from src.backend.DeckManagement.InputIdentifier import Input
 
 from de_gensyn_HomeAssistantPlugin import const
+from de_gensyn_HomeAssistantPlugin.actions.HomeAssistantAction.dial_action import DialAction
 
 from de_gensyn_HomeAssistantPlugin.actions.HomeAssistantAction.helper import settings_helper
 from de_gensyn_HomeAssistantPlugin.actions.HomeAssistantAction.home_asistant_action import \
@@ -45,6 +48,19 @@ class HomeAssistant(PluginBase):  # pylint: disable=too-few-public-methods
             action_name=const.HOME_ASSISTANT,
         )
         self.add_action_holder(self.home_assistant_action_holder)
+
+        # Register DialAction
+        self.dial_action_holder = ActionHolder(
+            plugin_base=self,
+            action_base=DialAction,
+            action_id="de_gensyn_HomeAssistantPlugin::DialAction",
+            action_name=self.locale_manager.get("actions.dial_action.name"),  # Localized action name
+            action_support={
+                Input.Dial: ActionInputSupport.SUPPORTED,
+                Input.Key: ActionInputSupport.SUPPORTED  # For dial press
+            }
+        )
+        self.add_action_holder(self.dial_action_holder)
 
         self.register(
             plugin_name=const.HOME_ASSISTANT,

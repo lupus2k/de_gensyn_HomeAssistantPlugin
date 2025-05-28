@@ -63,5 +63,14 @@
     "actions.home_assistant.customization.less_than.label": "is less than",
     "actions.home_assistant.customization.less_than_equals.label": "is less than or equals",
     "actions.home_assistant.customization.greater_than.label": "is greater than",
-    "actions.home_assistant.customization.greater_than_equals.label": "is greater than or equals"
+    "actions.home_assistant.customization.greater_than_equals.label": "is greater than or equals",
+
+    "actions.dial_action.name": "HA Dial Control",
+    "actions.dial_action.config.title": "Dial Configuration",
+    "actions.dial_action.config.entity_id.title": "Entity ID",
+    "actions.dial_action.config.step_size.title": "Step Size",
+    "actions.dial_action.config.turn_service.title": "Dial Turn Service",
+    "actions.dial_action.config.turn_service.placeholder": "e.g., light.turn_on",
+    "actions.dial_action.config.press_service.title": "Dial Press Service (Optional)",
+    "actions.dial_action.config.press_service.placeholder": "e.g., scene.turn_on"
 }
