@@ -180,7 +180,7 @@ class HomeAssistantAction(ActionBase):
         text_group = self._get_text_group()
         connection_group = self._get_connection_group()
         # if Input.Dial > -1:
-        dial_entity_group = self._get_dial_entity_group()
+        dial_settings_group = self._get_dial_settings_group()
 
         self._load_attributes()
         self._load_icon_settings()
@@ -198,7 +198,7 @@ class HomeAssistantAction(ActionBase):
         # connect as the last action - else the on_change functions trigger on populating the models
         self._connect_rows()
 
-        return [entity_group, service_group, icon_group, text_group, dial_entity_group, connection_group]
+        return [entity_group, service_group, icon_group, text_group, dial_settings_group, connection_group]
 
     def _get_entity_group(self) -> PreferencesGroup:
         """
@@ -658,7 +658,7 @@ class HomeAssistantAction(ActionBase):
 
         return group
 
-    def _get_dial_entity_group(self) -> PreferencesGroup:
+    def _get_dial_settings_group(self) -> PreferencesGroup:
         """
         Get all dial entity rows.
         """
@@ -1185,8 +1185,11 @@ class HomeAssistantAction(ActionBase):
         self.dial_service_service_combo.set_model(self.dial_service_service_model)
         self.dial_step_size.set_value(self.settings[const.SETTING_DIAL_STEP_SIZE])
 
-        services = self.plugin_base.backend.get_services(
+        all_domains = self.plugin_base.backend.get_domains()
+
+        all_services = self.plugin_base.backend.get_services(
             self.dial_entity_domain_combo.get_selected_item().get_string())
+        services = [service for service in const.DIAL_ALLOWED_SERVICES if service in all_services]
 
         for service in services:
             self.dial_service_service_model.append(service)
