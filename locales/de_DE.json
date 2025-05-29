@@ -10,6 +10,7 @@
     "actions.home_assistant.settings.icon.label": "Bild",
     "actions.home_assistant.settings.text.label": "Text",
     "actions.home_assistant.settings.connection.label": "Verbindungsstatus",
+    "actions.home_assistant.settings.dial.label": "Dial",
 
     "actions.home_assistant.entity.domain.label": "Domäne:",
     "actions.home_assistant.entity.entity.label": "Entität:",
@@ -63,14 +64,6 @@
     "actions.home_assistant.customization.less_than.label": "ist kleiner",
     "actions.home_assistant.customization.less_than_equals.label": "ist kleiner gleich",
     "actions.home_assistant.customization.greater_than.label": "ist größer",
-    "actions.home_assistant.customization.greater_than_equals.label": "ist größer gleich",
+    "actions.home_assistant.customization.greater_than_equals.label": "ist größer gleich"
 
-    "actions.dial_action.name": "HA Drehregler Steuerung",
-    "actions.dial_action.config.title": "Drehregler Konfiguration",
-    "actions.dial_action.config.entity_id.title": "Entitäts-ID",
-    "actions.dial_action.config.step_size.title": "Schrittgröße",
-    "actions.dial_action.config.turn_service.title": "Dreh-Service",
-    "actions.dial_action.config.turn_service.placeholder": "z.B. light.turn_on",
-    "actions.dial_action.config.press_service.title": "Druck-Service (Optional)",
-    "actions.dial_action.config.press_service.placeholder": "z.B. scene.turn_on"
 }
