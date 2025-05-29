@@ -1347,9 +1347,6 @@ class HomeAssistantAction(ActionBase):
         """
         Callback for dial events.
         """
-        if not self.settings[const.SETTING_DIAL_ENTITY_ENTITY]:
-            return
-
         if event == Input.Dial.Events.TURN_CW:
             if self.settings[const.SETTING_DIAL_SERVICE_SERVICE]:
                 self._accumulate_dial_step(self.settings[const.SETTING_DIAL_STEP_SIZE])
