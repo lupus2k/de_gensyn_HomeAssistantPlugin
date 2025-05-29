@@ -50,25 +50,7 @@ Located within each action are settings that allow you to call Home Assistant se
 icons or text of Home Assistant entities (or possibly all three). 
 
 ### Dial Control Action
-This action type is designed for devices with rotational dials, such as the Stream Deck+. It allows you to control Home Assistant entities by rotating the dial or pressing it.
-
-#### Configuration Options
-Within the "Dial Configuration" section, you can set the following:
-
-*   **Entity ID**: Specify the primary Home Assistant entity that this dial action will affect (e.g., `light.living_room_main`). This entity will be the target for the service calls.
-*   **Step Size**: Define the numerical value for each step when the dial is turned. For instance, if controlling brightness, a step size of `10` would mean a 10% change per dial increment/decrement.
-*   **Dial Turn Service**: Enter the service to be called when the dial is rotated (e.g., `light.turn_on`).
-    *   When this service is called due to a dial turn, the configured **Step Size** is passed as `brightness_step_pct` in the service data. Positive for clockwise (CW) rotation, negative for counter-clockwise (CCW).
-    *   This is suitable for services like `light.turn_on` to adjust brightness, or potentially `input_number.increment` / `input_number.decrement` if the `input_number` is configured in Home Assistant to use the step. For direct `input_number` control, you might also set the plugin's step size to `1` and define the step within the `input_number`'s configuration in Home Assistant.
-*   **Dial Press Service (Optional)**: Specify the service to be called when the dial is pressed (e.g., `light.toggle` to switch a light on/off, or `scene.turn_on` to activate a scene).
-
-#### Example Usage
-To control a light's brightness and toggle its state:
-
-*   Set **Entity ID** to your light entity (e.g., `light.living_room_lamp`).
-*   Set **Dial Turn Service** to `light.turn_on`.
-*   Set **Step Size** to `10` (this will adjust brightness by 10% per dial turn).
-*   Optionally, set **Dial Press Service** to `light.toggle` to turn the light on or off with a dial press.
+This action type is designed for devices with rotational dials, such as the Stream Deck+. It allows you to control Home Assistant entities by rotating the dial.
 
 ### Action entity
 First you need to pick an entity for your action.

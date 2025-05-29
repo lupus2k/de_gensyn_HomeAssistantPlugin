@@ -1139,9 +1139,10 @@ class HomeAssistantAction(ActionBase):
         old_domain = self.settings[const.SETTING_DIAL_ENTITY_DOMAIN]
 
         self.dial_entity_domain_model = StringList.new([const.EMPTY_STRING])
-        self.dial_entity_domain_combo.set_model(self.entity_domain_model)
+        self.dial_entity_domain_combo.set_model(self.dial_entity_domain_model)
 
-        domains = sorted(self.plugin_base.backend.get_domains())
+        all_domains = self.plugin_base.backend.get_domains()
+        domains = [domain for domain in const.DIAL_ALLOWED_DOMAINS if domain in all_domains]
 
         if not old_domain in domains:
             domains.append(old_domain)
