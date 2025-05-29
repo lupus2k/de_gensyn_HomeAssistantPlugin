@@ -15,8 +15,6 @@ sys.path.insert(0, ABSOLUTE_PLUGIN_PATH)
 
 from src.backend.PluginManager.ActionHolder import ActionHolder
 from src.backend.PluginManager.PluginBase import PluginBase
-from src.backend.PluginManager.ActionInputSupport import ActionInputSupport
-from src.backend.DeckManagement.InputIdentifier import Input
 
 from de_gensyn_HomeAssistantPlugin import const
 
